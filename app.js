@@ -3,11 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+require('dotenv').config()
 
 // Set up mongoose connection
 var mongoose = require("mongoose");
 //Set up default mongoose connection
-var mongoDB = "mongodb+srv://space500000:space500000@cluster0.6ygwz.mongodb.net/local_library?retryWrites=true&w=majority"
+var mongoDB = `${process.env.DB_URL}`
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 //Get the default connection
 var db = mongoose.connection;
