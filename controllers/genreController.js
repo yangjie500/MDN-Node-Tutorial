@@ -53,8 +53,7 @@ exports.genre_create_get = function(req, res) {
 // Handle Genre create on POST.
 exports.genre_create_post = [
     // Validate and sanitize the name field
-    body('name', 'Genre name required').trim().isLength({ min: 6 }).escape(),
-    body('name', 'Must be longer than 5 letters').trim().isLength({ min: 5 }).escape(),
+    body('name', 'Genre name required').trim().isLength({ min: 1 }).escape(),
 
     // Process request after validation and sanitization.
     (req, res, next) => {
